@@ -1,0 +1,58 @@
+{
+  "name": "molecule-shapes",
+  "version": "1.7.0-dev.0",
+  "license": "GPL-3.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/oasisbulys/cerium.git"
+  },
+  "devDependencies": {
+    "grunt": "~1.5.3"
+  },
+  "phet": {
+    "requirejsNamespace": "MOLECULE_SHAPES",
+    "phetLibs": [
+      "mobius",
+      "nitroglycerin"
+    ],
+    "preload": [
+      "../sherpa/lib/typedarray-44f09cf.js",
+      "../sherpa/lib/three-r71.js",
+      "../sherpa/lib/three-r71-Projector.js",
+      "../sherpa/lib/three-r71-CanvasRenderer.js",
+      "../sherpa/lib/liberation-sans-regular-subset-numeric-degrees.js"
+    ],
+    "runnable": true,
+    "supportedBrands": [
+      "cerium"
+    ],
+    "simulation": true,
+    "supportsOutputJS": true,
+    "simFeatures": {
+      "colorProfiles": [
+        "default",
+        "projector"
+      ],
+      "supportsDynamicLocale": true,
+      "supportsInteractiveDescription": true
+    },
+    "published": true,
+    "phet-io": {
+      "compareDesignedAPIChanges": true
+    },
+    "screenNameKeys": [
+      "MOLECULE_SHAPES/screen.model",
+      "MOLECULE_SHAPES/screen.realMolecules"
+    ]
+  },
+  "scripts": {
+    "start": "node node_modules/grunt/bin/grunt dev-server --port=8080",
+    "test": "node --test tests/cartesian-frame.test.mjs",
+    "test:browser": "node tests/cartesian-browser.test.cjs",
+    "test:splash": "node tests/splash-layout.test.cjs",
+    "test:textbook": "node tests/textbook-lock.test.cjs && node tests/textbook-reference.test.cjs",
+    "lint:cartesian": "node ../perennial-alias/node_modules/eslint/bin/eslint.js js/common/view/CartesianFrame.js js/common/view/CartesianCoordinatesPanel.js js/common/view/3d/CartesianCoordinatesView.js js/common/view/MoleculeShapesScreenView.js js/common/view/3d/MoleculeView.js js/common/view/TextbookGeometry.js js/common/view/TextbookOrientation.js js/common/view/RigidAlignment.js js/common/view/TextbookDiagram.js js/common/view/TextbookReference.js js/model/ModelMoleculesModel.js js/model/ModelMoleculesScreenView.js js/real/RealMoleculesScreenView.js js/common/view/3d/LabModelLoader.js js/common/view/3d/LabEnvironmentView.js js/common/view/3d/RoomPositionGuides.js js/common/view/LabLearningPanel.js js/common/view/RoomCoordinates.js js/molecule-shapes-main.js",
+    "test:lab": "node tests/lab-browser.test.cjs",
+    "profile:lab": "node tests/lab-profile.cjs"
+  }
+}

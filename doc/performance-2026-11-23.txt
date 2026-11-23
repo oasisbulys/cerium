@@ -1,0 +1,23 @@
+Cerium — final production build profile, 2026-11-23
+
+ANGLE (AMD, AMD Radeon RX 9060 XT (radeonsi gfx1200 ACO), OpenGL ES 3.2)
+Hardware rendering: True
+1920 × 1080, device pixel ratio 1; headless Brave/Chromium on Linux.
+All 11 original texture images retained; 16× anisotropic filtering and two 2048² soft-shadow maps.
+Latest book references and matching atom/lone-pair captions are included.
+
+Studio / AX6 / solver active
+  60.00 FPS; frame p95 16.70 ms; CPU view-step mean 0.62 ms, p95 0.90 ms; frames over 25 ms: 0/300.
+
+Lab / AX6 / original textures / solver active
+  60.00 FPS; frame p95 16.80 ms; CPU view-step mean 0.80 ms, p95 1.20 ms; frames over 25 ms: 0/300.
+
+Lab / AX6 / continuously orbiting / solver active
+  60.00 FPS; frame p95 16.80 ms; CPU view-step mean 0.76 ms, p95 0.90 ms; frames over 25 ms: 0/300.
+
+60 warm-up frames followed by 300 measured intervals per scenario with the VSEPR solver active. Frame rate is refresh-limited; loading is excluded. CPU view-step time measures JavaScript submission, not GPU execution. Results apply to this device and browser setup.
+
+Reproduce with the development server running:
+BROWSER_EXECUTABLE=/usr/bin/brave SIM_PATH=/molecule-shapes/build/cerium/molecule-shapes_en_cerium.html npm run profile:lab
+
+Full measurements: lab-profile.json

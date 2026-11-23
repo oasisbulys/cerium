@@ -1,0 +1,84 @@
+Validation: 2026-11-23
+Node 24.21.0; Linux; headless Brave/Chromium with software WebGL for correctness tests. Hardware GPU profiling is recorded separately in lab-profile.json.
+
+Preserved upstream source: 1aee7cee7bcbea4276a6a416ff943acac13e9506
+
+Full Cerium production build: PASSED
+Command: node node_modules/grunt/bin/grunt --brands=cerium --locales=en
+Repository lint stage: PASSED. Upstream default skips type checking.
+Expected warnings: unavailable private PhET-iO/studio repositories, unused upstream projectorColors string, Browserslist data age.
+
+Production browser suites with assertions enabled: PASSED (41 upstream numerical scenarios; all 28 configurations preserve model state and domain angles; textbook layouts for tetrahedral in-page/front/back, trigonal pyramidal, T, seesaw, planar, bipyramidal, square, linear, and octahedral shapes; all-geometry book references, upright default cameras, matching atom and LP1-LP6 page/depth captions, clear lone-pair reference lobes, and verified pointer-driven lone-pair repulsion/relaxation, and shape-specific beginner hints; A3 whole-molecule dragging with no release snap; default textbook-orientation lock, explicit unlocking/re-locking; optional individual-atom deformation and VSEPR relaxation; original full-resolution lab assets, responsive lighting, two 2048-square soft-shadow maps, Z-up room axes and position guides; Hide/Show GUI; both screens; all real/model presets; reset; planes; picking; Canvas fallback; zero JavaScript errors).
+
+Splash alignment at 1920 × 1080: PASSED; wordmark and progress-bar centers differ by less than 1 px.
+
+Node tests:
+✔ view-only rigid fitting recovers known rotations and preserves every angle (2.435451ms)
+✔ view fitting remains stable at equal singular values and retains twist for a linear molecule (4.027455ms)
+✔ a known 90-degree rotation uses the correct central-atom-relative frame (0.56331ms)
+✔ camera orbit changes the camera pose, preserving molecular coordinates and the projected pivot (0.765387ms)
+✔ locking axes attaches the frame to molecule-only rotation and preserves local coordinates (0.654299ms)
+✔ molecule rotation after an orbit follows camera-local gesture axes and preserves bond angles (0.184819ms)
+✔ repeated rotations remain normalized and orientation reset retains the selected mode (1.305755ms)
+✔ upstream solver, domain, lone-pair, real-molecule, and bond-angle formulas are byte-for-byte preserved (0.912999ms)
+✔ textbook orientations preserve every domain angle for all 28 AXnEm configurations (0.85912ms)
+✔ textbook conventions make common molecular shapes readable against the page and axes (0.398214ms)
+✔ alignment, rigid rotation, axes, and coordinate readout share the same molecular frame (0.151421ms)
+✔ local axes follow domain-induced rotation without snapping the molecule view back (0.100186ms)
+✔ lab mode maps the real room to a fixed Z-up frame with X/Y on the floor (0.144151ms)
+✔ room turntable keeps a level horizon and stays within floor/ceiling pitch bounds (1.122619ms)
+✔ packaged Lab source retains the original geometry, JPEG bytes, and CC BY attribution (22.521565ms)
+✔ offline Lab bundle embeds byte-identical original JPEGs and geometry (34.326369ms)
+✔ textbook lock holds the canonical molecular pose while gestures orbit the room camera (0.501491ms)
+✔ book cameras keep axial bonds upright, face the reference page, and retain the first two flat views (0.611923ms)
+ℹ tests 18
+ℹ suites 0
+ℹ pass 18
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 146.226015
+
+Production standalone HTML browser suite:
+PASS upstream numerical regression: 41 scenarios (28 AXnEm, 13 real molecules)
+PASS camera orbit, molecular-frame coordinates, keyboard controls, and untouched model state
+PASS molecule-only rotation, world-frame coordinates, fixed axes, planes, and 90-degree bond angle
+PASS local-orientation lock: molecule, axes, and plane rotate together; local coordinates and model state stay unchanged
+PASS orientation-only reset, orbit-aware group placement, picking, spherical dragging, add/remove
+PASS 13 real presets in real/model views, lone-pair visibility, screen switching, and Reset All
+PASS default textbook alignment: all 28 configurations preserve model state and angles; tetrahedral in/front/back, trigonal pyramidal, T, seesaw, planar, bipyramidal, square, linear, and octahedral views
+PASS locked axes stay on octahedral bonds during pointer rotation; local readouts stay unchanged
+PASS grabbing A3 rotates the whole molecule and locked axes; no deformation or orientation snap after release
+PASS optional original atom deformation, release/relaxation without view snap, and local axes/readouts tracking its reference frame
+PASS Hide/Show GUI: panels, accessible controls, and navigation hide together; recovery and molecule interaction work
+PASS Canvas fallback and zero browser JavaScript errors
+
+Textbook lock continuity and book diagram regression suite:
+PASS 72 seeded VSEPR relaxation cases: no settled frame flips; alignment never writes model state
+PASS bounded transitions, smooth lock/re-lock, no unlock snap, and correct axes/readouts throughout easing
+PASS tetrahedral wedge/dash diagram matches all four 3D atom IDs and actual reference-frame depths; zero browser errors
+
+All-geometry book references and default cameras:
+PASS 28 reference diagrams: atom IDs, lone pairs, page/depth signs, best-view defaults, no label overlap, visible atoms, model state preserved
+PASS geometry changes smoothly restore the recommended camera with no immediate jump and at most 3 degrees per 60 Hz frame
+PASS named LP cloud picking/dragging, outward repulsion impulse, neighboring atom motion, release/relaxation, and cloud-label visibility
+PASS all 13 real presets in real/model views, camera orbit/reset, textbook toggle visibility, and zero browser errors
+
+Production standalone HTML lab browser suite:
+PASS full-resolution lab loading, original 11 images, fixed room axes, and preserved molecule state
+PASS source surface normals, lit materials, two soft-shadow maps, and room-direction axis labels
+PASS room camera orbit keeps a stable horizon and room-relative coordinates
+PASS selecting atoms, plain-language below/above directions, Z-up coordinates, and correct XY height projections
+PASS molecule-only rotation leaves the lab fixed and all room guides match rendered atom positions
+PASS lab Hide/Show GUI, studio state restoration, and no browser JavaScript errors
+PASS original individual-atom deformation, click-to-inspect selection, relaxation, and stable world axes in the lab
+PASS textbook orientation is locked by default, explicit unlocking enables manipulation, and re-locking realigns only the view
+PASS both screens, all 13 real presets in real/model views, empty molecules, and repeat-toggle resource reuse
+PASS Canvas fallback keeps the core simulation available with the WebGL lab control disabled
+
+Cerium splash layout browser test:
+PASS Cerium splash bar center: 960.0800170898438px; wordmark center: 960.0799560546875px
+
+Git whitespace validation:
+PASSED for simulation and Joist splash changes.

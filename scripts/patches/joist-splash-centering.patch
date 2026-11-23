@@ -1,0 +1,37 @@
+diff --git a/js/splash.js b/js/splash.js
+index ecc0a1b..18e0417 100644
+--- a/js/splash.js
++++ b/js/splash.js
+@@ -1,4 +1,5 @@
+ // Copyright 2016-2025, University of Colorado Boulder
++// Modified 2026-11-23 for Cerium: center the progress bar beneath custom brand wordmarks.
+ 
+ /**
+  * Shows the splash screen and loading progress bar.
+@@ -98,6 +99,10 @@
+     // Center before showing so it appears at the correct position.
+     adjustPosition();
+ 
++    // Center the shorter progress bar under the brand image. The PhET logo is about the same width as the bar,
++    // while custom brands (for example Cerium) can have a wider wordmark.
++    svg.style.marginLeft = `${( splashImageWidth - PROGRESS_BAR_WIDTH ) / 2 - 1}px`;
++
+     window.addEventListener( 'resize', adjustPosition );
+     window.addEventListener( 'load', adjustPosition );
+ 
+@@ -149,7 +154,7 @@
+   defs.appendChild( clipPath );
+ 
+ 
+-  svg.style[ 'margin-left' ] = '-1px'; // compensates for the offset of x=1
++  svg.style[ 'margin-left' ] = '-1px'; // compensates for the offset of x=1; centered after the splash image loads
+   const progressBarBackground = document.createElementNS( XML_NAMESPACE, 'rect' );
+   progressBarBackground.setAttribute( 'id', 'progressBarBackground' );
+   progressBarBackground.setAttribute( 'x', '1' ); // prevent clipping on the left side, see https://github.com/phetsims/joist/issues/400
+@@ -249,4 +254,4 @@
+       delete window.phetSplashScreen;
+     }
+   };
+-} )();
+\ No newline at end of file
++} )();

@@ -1,0 +1,19 @@
+{
+  "js/common/model/AttractorModel.js": "b8fa756724a18b40022e0d53f27b0bb0a3f6a8f45518e0e00a3778a5e9ea45e9",
+  "js/common/model/Bond.js": "00cc08380528eccb2b7b4aa7d404af3a522393609778554cd55aa0221a59765a",
+  "js/common/model/ElectronGeometry.js": "3c02833c4662dfb8ce91801eb0bd1677b547f7a30a1412e493fa06f7a86362ca",
+  "js/common/model/LocalShape.js": "b6721112d0aa76c16a87763036abf4397f3933ba0385e86225fc4ef9da450f4b",
+  "js/common/model/Molecule.js": "b925949ef20beb06e7c97dcf167d256c01bfde3ae79934a7de7718dd350fc422",
+  "js/common/model/MoleculeGeometry.js": "c827fa81ec727da3d26b10353a8293e992115ad51e4f7202e75ac6fd477c56e5",
+  "js/common/model/MoleculeShapesModel.js": "c437ace49749c347373894fc441acb43b24998e5198f3eaa9ed62a0fabb4b0b6",
+  "js/common/model/PairGroup.js": "89ecaa2377de8f0bfe69c06b79d63a1d10f676885d2f9e91a7512b2a883295b6",
+  "js/common/model/RealAtomPosition.js": "c121e6e7eab9f8e73af1caf42915a15b7deae9ba3a3e7c8768a8a986cf1122f4",
+  "js/common/model/RealMolecule.js": "7e4eebcb6584b9daa7145234e0bfc57bb9eb72ba1ca5cdf12664b4035ea94470",
+  "js/common/model/RealMoleculeShape.js": "5f4651b7dc4207204005c9b7fd8eb4fcba8d7baa2b76186fc4f2595ac859a880",
+  "js/common/model/VSEPRConfiguration.js": "56892611c079eeb039050463afa38fafec4773bdc72449ad2ce7beedf9ac6dbb",
+  "js/common/model/VSEPRMolecule.js": "8c6a54ab03e21bd1d073ab1916f490c55459474335a819f37895941f8be08ff5",
+  "js/common/view/3d/BondAngleFallbackView.js": "700e1012fc578fccc62de94748ce5519fd38b019602aa7f5a3df919d1cf34166",
+  "js/common/view/3d/BondAngleView.js": "8db6de1897afd838f34052b65fb76fd16cb4c45e532b46cab6045cc6fc2d2dfa",
+  "js/common/view/3d/BondAngleWebGLView.js": "e6abad4ffded551471378e6e876fbd615e22b847dcd3e202aa3850f89bfdc2db",
+  "js/real/RealMoleculesModel.js": "8ca68e9dbc666d1f96febb7eba5e5b6003a1594d2dc6febfb396e218e1fd763a"
+}

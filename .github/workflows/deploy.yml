@@ -1,0 +1,52 @@
+name: Deploy Cerium
+
+on:
+  push:
+    branches: [main]
+    paths: ['docs/**', '.github/workflows/deploy.yml']
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: cerium-pages
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify standalone build and required notices
+        run: |
+          set -euo pipefail
+          test -s docs/index.html
+          test -s docs/LICENSE.txt
+          test -s docs/LAB-ATTRIBUTION.txt
+          test -s docs/credits.html
+          cd docs
+          sha256sum --check SHA256SUMS.txt
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - name: Test frames, textbook geometry, preserved VSEPR source, and textures
+        run: |
+          set -euo pipefail
+          mkdir -p ../sherpa/lib
+          curl --fail --silent --show-error --location https://raw.githubusercontent.com/phetsims/sherpa/4e16850c22c1666a029739137df9c07c64a9b448/lib/three-r71.js -o ../sherpa/lib/three-r71.js
+          echo 'ae7e1c77d25ca6d340ead2f7b25edced84d860c718ccdf78db6232c030c4c8ed  ../sherpa/lib/three-r71.js' | sha256sum --check
+          node --test tests/cartesian-frame.test.mjs
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: docs
+      - name: Publish the simulation
+        id: deployment
+        uses: actions/deploy-pages@v4

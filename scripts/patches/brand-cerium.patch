@@ -1,0 +1,20 @@
+diff --git a/tsconfig.json b/tsconfig.json
+index 8c82cbf..b2a26b7 100644
+--- a/tsconfig.json
++++ b/tsconfig.json
+@@ -8,11 +8,12 @@
+     "js/**/*",
+     "images/**/*",
+     "mipmaps/**/*",
+-    "sounds/**/*"
++    "sounds/**/*",
++    "cerium/**/*"
+   ],
+   "references": [
+     {
+       "path": "../perennial-alias/tsconfig/buildjson/tsconfig.json"
+     }
+   ]
+-}
+\ No newline at end of file
++}
